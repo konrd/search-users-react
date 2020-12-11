@@ -1,0 +1,110 @@
+@import "~bootstrap/dist/css/bootstrap.min.css";
+
+body{
+    background: #0E5D89;
+}
+
+.wrapper{
+    padding: 10px;
+}
+
+.search{
+    height: 60px;
+    font-size: 12px;
+    font-weight: bold;
+    text-indent: 20px;
+    background: #E8EEF4;
+    border-radius: 0;
+    border-top-left-radius: 5px!important;
+    border-top-right-radius: 5px!important;
+    border-bottom: none;
+}
+.search:focus{
+    background: #E8EEF4;
+    outline: 0!important;
+}
+
+.container{
+    width: 600px;
+}
+
+.tableUsers{
+    background: #fff;
+    border-radius: 5px;
+}
+
+.userAvatar{
+    display: flex;
+    width: 40px;
+    height: 40px;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: black;
+    border-radius: 50%;
+    box-shadow:  0 0 5px 3px rgba(0, 0, 0, 1.1);
+    -moz-box-shadow: 0 0 5px  3px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 0 3px 3px rgba(0,0,0,0.1);
+    -o-box-shadow: 0 0 5px 3px rgba(0,0,0,0.1);
+}
+
+.userRow td{
+    vertical-align: center!important;
+}
+
+.indexCol{
+    width: 20px;
+    font-size: 10px;
+    color: gray;
+}
+
+.countPub{
+    font-size: 12px;
+    color: gray;
+}
+
+.userName, .pageViews{
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.avatarCol{
+    width: 45px;
+    padding: 0!important;
+}
+
+.medalBlock{
+    width: 150px;
+}
+
+.pageNumbers{
+    list-style: none;
+    display: flex;
+}
+
+.paginationBlock{
+    display: flex;
+    justify-content: center;
+}
+
+.medalImage{
+    height: 32px;
+}
+
+.search-icon {
+    position: absolute;
+    left: 10px;
+    top: 17px;
+    z-index: 9999; /*this will keep the icon appearing all time, even when on input::focus*/
+}
+
+.search-icon img{
+    width: 14px;
+}
+
+.emptyList{
+    text-align: center;
+    margin-top: 20px;
+    color: white;
+}
