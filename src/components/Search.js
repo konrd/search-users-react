@@ -5,7 +5,6 @@ import {Form, InputGroup} from 'react-bootstrap'
 const Search = ({query, setQuery}) => {
 
     const handleSearch = (e) => {
-
         setQuery(e.target.value);
     };
 

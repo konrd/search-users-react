@@ -14,11 +14,12 @@ const App = () => {
       {currentPage: 1, usersPerPage: 10}
     );
     const [results, setResults] = useState([]);
+    const [sort, setSort] = useState({active: false, sortBy: '', desc: false});
     const [searchQuery, setSearchQuery] = useState('');
 
     useEffect(() => { //Init users
 
-        const topValues = [...usersData].sort((a, b) => b.pageviews - a.pageviews).slice(0,3);
+        const topValues = [...usersData].sort((a, b) => b.pageviews < a.pageviews).slice(0,3);
         const users = usersData.map(user => {
             if(user.name === topValues[0].name){
                 user.top = 1;
@@ -31,9 +32,26 @@ const App = () => {
             }
             return user;
         });
-
         setResults(users);
     }, []);
+
+    useEffect(() => { //Sort
+        if(sort.active){
+            sortBy(sort.sortBy, sort.desc);
+        }
+    }, [sort]);
+
+    const sortBy = (key, order) => {
+
+        const list = [...results].sort((a, b) =>
+        {
+            let value = 0;
+            (a[key] > b[key]) ? value = 1 : value = -1;
+
+            return (order === true) ? (value * -1) : value
+        });
+        setResults(list);
+    };
 
     useEffect(() => { //Filter users by search query
         const usersFiltered = usersData.filter(user =>
@@ -52,7 +70,7 @@ const App = () => {
             <div className="container">
                 <Search setQuery={setSearchQuery} query={searchQuery}/>
                 {currentUsers.length ? (
-                    <List users={currentUsers} index={indexOfFirstUser} />
+                    <List setSort={setSort} users={currentUsers} index={indexOfFirstUser} />
                 ) : <div className="emptyList">Ничего не найдено.</div>}
 
 
